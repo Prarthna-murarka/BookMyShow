@@ -1,0 +1,274 @@
+<html>
+<head>
+<script>
+var i=1;
+function slider()
+{
+if(i<5)
+{
+i++;
+}
+else
+{
+i=1;
+}
+document.getElementById('screenimg').src="s"+i+".jpg";
+setTimeout("slider();",4000);
+}
+
+
+function menuvisible()
+{
+document.getElementById("curtop").style.visibility="visible";
+
+}
+
+</script>
+<style>
+#cur1
+{
+height:100%;
+width:5%;
+left:0%;
+top:0%;
+position:absolute;
+animation-name: curopenleft;
+animation-duration: 5s;
+}
+
+@keyframes curopenleft{
+    0%{ width:50%;}
+ 
+	
+	 100%{width:5%;}
+}
+
+#cur2
+{
+height:100%;
+width:5%;
+right:0%;
+top:0%;
+position:absolute;
+animation-name: curopenright;
+animation-duration: 5s;
+
+}
+
+@keyframes curopenright{
+    0%{ width:50%;}
+ 
+	 100%{width:5%;}
+}
+
+#curtop
+{
+height:10%;
+width:100%;
+right:0%;
+top:0%;
+position:absolute;
+animation-name: curopentop;
+animation-duration: 5s;
+background-color:black;
+opacity:0.7;
+
+}
+#menu
+{
+width:60%;
+height:100%;
+left:200%;
+
+}
+@keyframes curopentop
+{
+    0%{ height:0%;}
+ 
+	 100%{height:10%;}
+}
+
+#bg
+{
+height:100%;
+width:100%;
+right:0%;
+top:0%;
+position:absolute;
+}
+
+
+#screen
+{
+height:37%;
+width:57%;
+left:21%;
+top:17%;
+position:absolute;
+background-color:white;
+
+
+}
+
+#man1
+{
+height:25%;
+width:13%;
+left:7.5%;
+bottom:20%;
+
+overflow:hidden;
+position:absolute;
+animation-name:man1move;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+}
+
+@keyframes man1move
+{
+    0%{ height:25%;}
+ 	 50%{height:20%;}
+	  100%{height:25%;}
+}
+
+#man2
+{
+height:8%;
+width:7%;
+left:34%;
+bottom:25%;
+
+overflow:hidden;
+position:absolute;
+animation-name:man2move;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+}
+
+@keyframes man2move
+{
+    0%{ height:12%;}
+ 	 50%{height:15%;}
+	  100%{height:12%;}
+}
+
+
+#man3
+{
+
+height:25%;
+width:29%;
+left:58%;
+bottom:8%;
+
+overflow:hidden;
+position:absolute;
+animation-name:man3move;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+}
+a{
+text-decoration:none;
+}
+@keyframes man3move
+{
+    0%{ height:30%;}
+ 	 50%{height:25%;}
+	  100%{height:30%;}
+}
+
+#movie{
+height:50%;
+width:100%;
+background-color:yellow;
+position:absolute;
+}
+
+#book{
+height:19%;
+width:13%;
+left:82.5%;
+top:25%;
+position:absolute;
+}
+
+#book:hover
+{
+transition-duration: 6s;
+transform: rotate(360deg);
+}
+#rope{
+height:65%;
+width:10%;
+position:absolute;
+left:85%;
+}
+#wel
+{
+	top:0%;
+height:20%;
+width:20%;
+position:absolute;
+left:70%;
+	
+}
+
+
+
+</style>
+</head>
+<body onload="slider()"> 
+<div id='bg'> <img  src='h.jpg' height='100%' width='100%'></div> 
+<div id='screen'>  <img id='screenimg' src='s3.jpg' height='100%' width='100%'> </div>
+<div id="man1"><img src="man1.png" height='100%' width='100%'></div>
+<div id="man2"><img src="man1.png" height='100%' width='100%'> </div>
+<div id="man3"><img src="man1.png" height='100%' width='100%'> </div>
+
+<div id='rope'><img src="rope.png" height='100%' width="100%"> </div>
+<div id='book'><a href="book.php"><img src="book.png" height='100%' width="100%"> </a></div>
+<div id='curtop'> 
+<div id='menu'>
+<center>
+
+
+<table height="20%" width="60%">
+<tr>
+      <td>     </td>
+     <td> 
+          <a href="   "><font style='forte' size='4' color='white'>HOME</font></a> 
+     </td>
+       <td>
+	   <a href="contact.php"><font style='forte' size='4' color='white'>GAIN MONEY</font></a> 
+	   </td>
+	   <td>
+       <a href="register.php"><font style='forte' size='4' color='white'>REGISTER</font></a> 
+	   </td>
+	   <td>
+       <a href="login.html"><font style='forte' size='4' color='white'>SIGN IN</font></a> 
+	   </td>
+	   
+	   </tr>
+	   </table>
+	   </center>
+	   </div>
+</div>
+
+<div id='cur1'> <img src='curtain.jpg' height='100%' width='100%'></div>
+<div id='cur2'> <img src='curtain.jpg' height='100%' width='100%'></div>
+<?php
+	session_start();
+	$name=$_SESSION['name'];
+	session_start();
+	$bal=$_SESSION['money'];
+	
+	
+	
+	
+echo "<div id='wel'><font color='white' size='5'>";	
+echo"welcome ".$name."<br>";
+echo "<font color='blue' size='3'>bk cash you have</font>".$bal;
+
+echo "</font></div>";
+?>
+</body>
+</html>
